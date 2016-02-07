@@ -1,4 +1,4 @@
-	.file	"test3.c"
+	.file	"test1.c"
 	.text
 	.align 2
 .globl main
@@ -14,14 +14,12 @@ main:
 	andl	$-16, %esp
 	movl	$0, %eax
 	subl	%eax, %esp
-	movl	$197, -4(%ebp)
-	movl	-4(%ebp), %eax
-	addl	$8, %eax
-	movl	%eax, -8(%ebp)
+	movl	$7, -4(%ebp)
+	movl	$15, -8(%ebp)
 	movl	-8(%ebp), %eax
-	subl	$4, %eax
+	addl	-4(%ebp), %eax
 	movl	%eax, -12(%ebp)
-	movl	-8(%ebp), %eax
+	movl	-12(%ebp), %eax
 	leave
 	ret
 .LFE2:

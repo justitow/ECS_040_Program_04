@@ -1,0 +1,47 @@
+pushl %ebp           eip: 104 eax:   0 ebp: 996 esp: 996 edx:   0 flags: 192
+movl %esp, %ebp      eip: 108 eax:   0 ebp: 996 esp: 996 edx:   0 flags: 192
+subl $88, %esp       eip: 112 eax:   0 ebp: 996 esp: 908 edx:   0 flags:   0
+andl $-16, %esp      eip: 116 eax:   0 ebp: 996 esp: 896 edx:   0 flags:   0
+movl $0, %eax        eip: 120 eax:   0 ebp: 996 esp: 896 edx:   0 flags:   0
+subl %eax, %esp      eip: 124 eax:   0 ebp: 996 esp: 896 edx:   0 flags:   0
+movl $197, -12(%ebp) eip: 128 eax:   0 ebp: 996 esp: 896 edx:   0 flags:   0
+cmpl $99, -12(%ebp)  eip: 132 eax:   0 ebp: 996 esp: 896 edx:   0 flags:   0
+jg .L2               eip: 144 eax:   0 ebp: 996 esp: 896 edx:   0 flags:   0
+movl $26, -16(%ebp)  eip: 148 eax:   0 ebp: 996 esp: 896 edx:   0 flags:   0
+movl $0, -76(%ebp)   eip: 152 eax:   0 ebp: 996 esp: 896 edx:   0 flags:   0
+cmpl $2, -76(%ebp)   eip: 156 eax:   0 ebp: 996 esp: 896 edx:   0 flags: 128
+jle .L7              eip: 164 eax:   0 ebp: 996 esp: 896 edx:   0 flags: 128
+movl -76(%ebp), %edx eip: 168 eax:   0 ebp: 996 esp: 896 edx:   0 flags: 128
+movl -16(%ebp), %eax eip: 172 eax:  26 ebp: 996 esp: 896 edx:   0 flags: 128
+addl -12(%ebp), %eax eip: 176 eax: 223 ebp: 996 esp: 896 edx:   0 flags:   0
+movl %eax, -72(%ebp,%edx,4) eip: 180 eax: 223 ebp: 996 esp: 896 edx:   0 flags:   0
+leal -76(%ebp), %eax eip: 184 eax: 920 ebp: 996 esp: 896 edx:   0 flags:   0
+incl (%eax)          eip: 188 eax: 920 ebp: 996 esp: 896 edx:   0 flags:   0
+jmp .L4              eip: 152 eax: 920 ebp: 996 esp: 896 edx:   0 flags:   0
+cmpl $2, -76(%ebp)   eip: 156 eax: 920 ebp: 996 esp: 896 edx:   0 flags: 128
+jle .L7              eip: 164 eax: 920 ebp: 996 esp: 896 edx:   0 flags: 128
+movl -76(%ebp), %edx eip: 168 eax: 920 ebp: 996 esp: 896 edx:   1 flags: 128
+movl -16(%ebp), %eax eip: 172 eax:  26 ebp: 996 esp: 896 edx:   1 flags: 128
+addl -12(%ebp), %eax eip: 176 eax: 223 ebp: 996 esp: 896 edx:   1 flags:   0
+movl %eax, -72(%ebp,%edx,4) eip: 180 eax: 223 ebp: 996 esp: 896 edx:   1 flags:   0
+leal -76(%ebp), %eax eip: 184 eax: 920 ebp: 996 esp: 896 edx:   1 flags:   0
+incl (%eax)          eip: 188 eax: 920 ebp: 996 esp: 896 edx:   1 flags:   0
+jmp .L4              eip: 152 eax: 920 ebp: 996 esp: 896 edx:   1 flags:   0
+cmpl $2, -76(%ebp)   eip: 156 eax: 920 ebp: 996 esp: 896 edx:   1 flags:  64
+jle .L7              eip: 164 eax: 920 ebp: 996 esp: 896 edx:   1 flags:  64
+movl -76(%ebp), %edx eip: 168 eax: 920 ebp: 996 esp: 896 edx:   2 flags:  64
+movl -16(%ebp), %eax eip: 172 eax:  26 ebp: 996 esp: 896 edx:   2 flags:  64
+addl -12(%ebp), %eax eip: 176 eax: 223 ebp: 996 esp: 896 edx:   2 flags:   0
+movl %eax, -72(%ebp,%edx,4) eip: 180 eax: 223 ebp: 996 esp: 896 edx:   2 flags:   0
+leal -76(%ebp), %eax eip: 184 eax: 920 ebp: 996 esp: 896 edx:   2 flags:   0
+incl (%eax)          eip: 188 eax: 920 ebp: 996 esp: 896 edx:   2 flags:   0
+jmp .L4              eip: 152 eax: 920 ebp: 996 esp: 896 edx:   2 flags:   0
+cmpl $2, -76(%ebp)   eip: 156 eax: 920 ebp: 996 esp: 896 edx:   2 flags:   0
+jle .L7              eip: 160 eax: 920 ebp: 996 esp: 896 edx:   2 flags:   0
+jmp .L5              eip: 192 eax: 920 ebp: 996 esp: 896 edx:   2 flags:   0
+movl -52(%ebp), %eax eip: 196 eax:   0 ebp: 996 esp: 896 edx:   2 flags:   0
+addl $18, %eax       eip: 200 eax:  18 ebp: 996 esp: 896 edx:   2 flags:   0
+movl %eax, -12(%ebp) eip: 204 eax:  18 ebp: 996 esp: 896 edx:   2 flags:   0
+movl -16(%ebp), %eax eip: 208 eax:  26 ebp: 996 esp: 896 edx:   2 flags:   0
+leave                eip: 212 eax:  26 ebp: 996 esp: 1000 edx:   2 flags:   0
+ret                  eip:   0 eax:  26 ebp: 996 esp: 1004 edx:   2 flags:   0

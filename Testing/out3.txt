@@ -1,0 +1,13 @@
+pushl %ebp           eip: 104 eax:   0 ebp: 996 esp: 996 edx:   0 flags: 192
+movl %esp, %ebp      eip: 108 eax:   0 ebp: 996 esp: 996 edx:   0 flags: 192
+subl $16, %esp       eip: 112 eax:   0 ebp: 996 esp: 980 edx:   0 flags:   0
+movl $197, -4(%ebp)  eip: 116 eax:   0 ebp: 996 esp: 980 edx:   0 flags:   0
+movl -4(%ebp), %eax  eip: 120 eax: 197 ebp: 996 esp: 980 edx:   0 flags:   0
+addl $8, %eax        eip: 124 eax: 205 ebp: 996 esp: 980 edx:   0 flags:   0
+movl %eax, -8(%ebp)  eip: 128 eax: 205 ebp: 996 esp: 980 edx:   0 flags:   0
+movl -8(%ebp), %eax  eip: 132 eax: 205 ebp: 996 esp: 980 edx:   0 flags:   0
+subl $4, %eax        eip: 136 eax: 201 ebp: 996 esp: 980 edx:   0 flags:   0
+movl %eax, -12(%ebp) eip: 140 eax: 201 ebp: 996 esp: 980 edx:   0 flags:   0
+movl -8(%ebp), %eax  eip: 144 eax: 205 ebp: 996 esp: 980 edx:   0 flags:   0
+leave                eip: 148 eax: 205 ebp: 996 esp: 1000 edx:   0 flags:   0
+ret                  eip:   0 eax: 205 ebp: 996 esp: 1004 edx:   0 flags:   0
