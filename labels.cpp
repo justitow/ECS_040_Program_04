@@ -13,8 +13,8 @@ fstream& operator>>(fstream& inf, Labels& labels)
 {
 	
 	char line[256], *ptr;
-	int address = 100, instructionCount = 0;
-	
+	int address = 100;
+	labels.count = 0;
 	while(inf.getline(line, 256))
 	{
 		for(ptr = strchr(line, '\t'); ptr; ptr = strchr(line, '\t'))
@@ -27,11 +27,12 @@ fstream& operator>>(fstream& inf, Labels& labels)
 			address += 4;
 		} // if not directive, nor main:
 		
-		// if the current thing is acutally a label, set the address to address and
-		// do stuff.
-			labels.instruction[instructionCount].setAddress(address);
-			labels.instruction[instructionCount++].setInfo(line);
-		
+		if ((*ptr == '.' && *(ptr+1) == 'L') || *ptr == '_')
+		{
+			labels.instruction[labels.count].setAddress(address);
+			labels.instruction[labels.count].setInfo(line);
+			labels.count++;
+		}
 	}  // while more in file
 	inf.clear();
 	inf.seekg(0, inf.beg);
