@@ -6,8 +6,9 @@
 //  Copyright © 2016 Justin Weich. All rights reserved.
 //
 
-#include "labels.h"
 
+#include <cstring>
+#include "labels.h"
 
 fstream& operator>>(fstream& inf, Labels& labels)
 {
@@ -26,15 +27,31 @@ fstream& operator>>(fstream& inf, Labels& labels)
 		{
 			address += 4;
 		} // if not directive, nor main:
-		
+
 		if ((*ptr == '.' && *(ptr+1) == 'L') || *ptr == '_')
 		{
 			labels.instruction[labels.count].setAddress(address);
+
+			if ((ptr = strchr(line, ':')))
+			{
+				*ptr = NULL;
+			} // if there wasn't a colon
 			labels.instruction[labels.count].setInfo(line);
 			labels.count++;
-		}
+		} //if there wasn't a label
 	}  // while more in file
 	inf.clear();
 	inf.seekg(0, inf.beg);
 	return inf;
+}
+
+int Labels::find(const char* line) const
+{
+	int index = 0;
+
+	while (strcmp(instruction[index].getInfo(), line) != 0)
+		index++;
+	
+	return instruction[index].getAddress();
+	
 }

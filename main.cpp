@@ -26,7 +26,7 @@ int main(int argc, char* argv[])
     decoder.execute(&registers, memory);
     registers.print(instruction.getInfo());
   } // while eip not zero
-  
+	
   return 0;
 }  // main()
 
