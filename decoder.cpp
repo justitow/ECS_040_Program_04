@@ -9,6 +9,7 @@ using namespace std;
 void Decoder::addl()
 {
   *operand2 = *operand1 + *operand2;
+	
 }  // addl()
 
 void Decoder::andl()
