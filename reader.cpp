@@ -36,6 +36,8 @@ fstream &operator>>(fstream& inf, Reader& reader)
       reader.lines[instructionCount++].setInfo(ptr);
     } // if not directive, nor main:
   }  // while more in file
+	inf.clear();
+	inf.seekg(0, inf.beg);
 	return inf;
 }  // read()
 

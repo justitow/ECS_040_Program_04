@@ -12,11 +12,13 @@ int main(int argc, char* argv[])
   Decoder decoder;
   Registers registers;
   Instruction instruction;
+	Labels labels;
   int memory [1001];
   registers.initialize(memory);
 	fstream inf(argv[1]);
 	inf >> reader;
-  
+	inf >> labels;
+
   while(registers.get(eip) != 0)
   {
     reader.fetch(&instruction, &registers);

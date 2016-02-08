@@ -22,7 +22,7 @@ private:
 	int count;
 	Instruction instruction[100];
 public:
-	friend fstream& operator>>(fstream& infile, Labels& labels);
+	friend fstream& operator>>(fstream& inf, Labels& labels);
 	
 };
 

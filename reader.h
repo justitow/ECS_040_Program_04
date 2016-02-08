@@ -14,7 +14,7 @@ class Reader
 public:
   void fetch(Instruction *instruction, Registers *registers);
   void read(Registers *registers, const char *filename);
-	friend fstream& operator>>( fstream& infile,  Reader &reader);
+	friend fstream& operator>>( fstream& inf,  Reader &reader);
 }; // Reader;
 
 
