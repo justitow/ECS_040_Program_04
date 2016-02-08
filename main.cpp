@@ -4,7 +4,7 @@
 #include "decoder.h"
 #include "reader.h"
 #include "instruction.h"
-
+#include "labels.h"
 
 int main(int argc, char* argv[])
 {
