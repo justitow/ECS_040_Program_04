@@ -25,7 +25,8 @@ int main(int argc, char* argv[])
     reader.fetch(&instruction, &registers);
     decoder.parse(&instruction, &registers, memory);
     decoder.execute(&registers, memory);
-    registers.print(instruction.getInfo());
+    //registers.print(instruction.getInfo());
+		cout << instruction.getInfo() << registers;
   } // while eip not zero
 	
   return 0;

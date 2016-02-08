@@ -27,4 +27,4 @@ public:
 	
 };
 
-#endif /* labels_h */
+#endif
