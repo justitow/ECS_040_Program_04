@@ -34,7 +34,7 @@ fstream& operator>>(fstream& inf, Labels& labels)
 
 			if ((ptr = strchr(line, ':')))
 			{
-				*ptr = NULL;
+				*ptr = '\0';
 			} // if there wasn't a colon
 			labels.instruction[labels.count].setInfo(line);
 			labels.count++;

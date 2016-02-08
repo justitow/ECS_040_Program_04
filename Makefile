@@ -17,8 +17,7 @@ instruction.o: instruction.cpp instruction.h
 	g++ -Wall -ansi -g -c instruction.cpp
 
 labels.o: labels.cpp labels.h instruction.h
-	g++ -Wall -ansi -g -c labels.o
-
+	g++ -Wall -ansi -g -c labels.cpp
 
 clean:
 	rm -f CPU.out *.o
