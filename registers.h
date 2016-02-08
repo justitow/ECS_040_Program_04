@@ -2,11 +2,11 @@
 #define	REGISTERS_H
 // Author: Sean Davis
 
-typedef enum {eax, ebp, esp, eip} RegName;
+typedef enum {eax, ebp, esp, eip, edx, flags} RegName;
  
 class Registers 
 {
-  int regs[4];
+  int regs[6];
 public:
   int* address(char *ptr, int memory[]);
   int get(RegName regName) const;
