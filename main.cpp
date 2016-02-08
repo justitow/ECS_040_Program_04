@@ -14,7 +14,8 @@ int main(int argc, char* argv[])
   Instruction instruction;
   int memory [1001];
   registers.initialize(memory);
-  reader.read(&registers, argv[1]);
+	fstream inf(argv[1]);
+	inf >> reader;
   
   while(registers.get(eip) != 0)
   {
@@ -24,8 +25,6 @@ int main(int argc, char* argv[])
     registers.print(instruction.getInfo());
   } // while eip not zero
   
- 
-
   return 0;
 }  // main()
 

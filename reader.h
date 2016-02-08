@@ -5,12 +5,16 @@
 #include "instruction.h"
 #include "registers.h"
 
+#include <fstream>
+
+using namespace std;
 class Reader
 {
   Instruction lines[1000];
 public:
   void fetch(Instruction *instruction, Registers *registers);
   void read(Registers *registers, const char *filename);
+	friend fstream& operator>>( fstream& infile,  Reader &reader);
 }; // Reader;
 
 

@@ -17,11 +17,10 @@ void Reader::fetch(Instruction *instruction, Registers *registers)
   registers->set(eip, registers->get(eip) + 4);
 } // fetch()
 
-void Reader::read(Registers *registers, const char *filename)
+fstream &operator>>(fstream& inf, Reader& reader)
 {
   char line[256], *ptr;
   int address = 100, instructionCount = 0;
-  ifstream inf(filename);
   
   while(inf.getline(line, 256))
   {
@@ -32,9 +31,12 @@ void Reader::read(Registers *registers, const char *filename)
     
     if(*ptr != '.' && !strstr(line, "main:"))
     {
-      lines[instructionCount].setAddress(address);
+      reader.lines[instructionCount].setAddress(address);
       address += 4;
-      lines[instructionCount++].setInfo(ptr);
+      reader.lines[instructionCount++].setInfo(ptr);
     } // if not directive, nor main:
   }  // while more in file
+	return inf;
 }  // read()
+
+
