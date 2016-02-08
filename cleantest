@@ -1,0 +1,10 @@
+#!/bin/bash
+
+rm -f *.txt
+rm -f rsults.txtj
+rm -f addresses
+rm -f temp
+rm -f makeOutput
+rm -f public
+rm -f private
+make clean
