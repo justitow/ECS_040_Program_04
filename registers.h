@@ -2,17 +2,22 @@
 #define	REGISTERS_H
 // Author: Sean Davis
 
-typedef enum {eax, ebp, esp, eip, edx, flags} RegName;
- 
+#include <iostream>
+
+using namespace std;
+
+
 class Registers 
 {
   int regs[6];
 public:
+	typedef enum {eax, ebp, esp, eip, edx, flags} RegName;
+	
 	Registers();
   int* address(char *ptr, int memory[]);
   int get(RegName regName) const;
-  void print(const char *instruction) const;
   void set(RegName regName, int value);
+	friend ostream& operator<<(ostream& cout, Registers& registers);
 }; // class Registers
 
 

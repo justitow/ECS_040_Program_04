@@ -6,6 +6,8 @@
 #include "instruction.h"
 #include "labels.h"
 
+#include <iomanip>
+
 int main(int argc, char* argv[])
 {
   Reader reader;
@@ -20,13 +22,13 @@ int main(int argc, char* argv[])
 	inf >> reader;
 	inf >> labels;
 
-  while(registers.get(eip) != 0)
+  while(registers.get(Registers::eip) != 0)
   {
     reader.fetch(&instruction, &registers);
     decoder.parse(&instruction, &registers, memory);
     decoder.execute(&registers, memory);
     //registers.print(instruction.getInfo());
-		cout << instruction.getInfo() << registers;
+		cout << left << setw(20) << instruction.getInfo() << registers;
   } // while eip not zero
 	
   return 0;

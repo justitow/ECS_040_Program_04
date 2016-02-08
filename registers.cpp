@@ -52,7 +52,7 @@ int* Registers::address(char *operand, int memory[])
 } // address ()
 
 
-int Registers::get(RegName regName) const
+int Registers::get(Registers::RegName regName) const
 {
   if(regName < eax || regName > eip)
     return 0;
@@ -61,18 +61,22 @@ int Registers::get(RegName regName) const
 }  // get()
 
 
-
-void Registers::print(const char *instruction) const
-{
-  cout << left << setw(20) << instruction << " eip: " << right << setw(3) 
-    << regs[eip] << " eax: " << setw(3) << regs[eax]
-    << " ebp: " << setw(3) << regs[ebp] << " esp: "
-    << setw(3) << regs[esp] << endl;
-}  // print()
-
-
-void Registers::set(RegName regName, int value)
+void Registers::set(Registers::RegName regName, int value)
 {
   if(regName >= eax && regName <= eip)
     regs[regName] = value;
 } // set()
+
+
+ostream& operator<<(ostream& cout, Registers& registers)
+{
+	cout << left << " eip: " << right << setw(3)
+	<< registers.regs[Registers::eip] << " eax: " << setw(3)
+	<< registers.regs[Registers::eax] << " ebp: " << setw(3)
+	<< registers.regs[Registers::ebp] << " esp: "<< setw(3)
+	<< registers.regs[Registers::esp] << " edx: " << setw(3)
+	<< registers.regs[Registers::edx] << " flags: " << setw(3)
+	<< registers.regs[Registers::flags] << endl;
+	return cout;
+} // << operator
+
