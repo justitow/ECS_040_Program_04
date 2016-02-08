@@ -42,4 +42,3 @@ fstream &operator>>(fstream& inf, Reader& reader)
 	return inf;
 }  // read()
 
-

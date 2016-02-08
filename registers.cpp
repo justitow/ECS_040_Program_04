@@ -80,3 +80,9 @@ ostream& operator<<(ostream& cout, Registers& registers)
 	return cout;
 } // << operator
 
+int& Registers::operator+=(int &i)
+{
+	regs[Registers::esp] += i;
+	return regs[Registers::esp];
+} //operator +=
+
