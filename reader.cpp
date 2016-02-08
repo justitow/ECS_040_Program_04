@@ -11,10 +11,11 @@ void Reader::fetch(Instruction *instruction, Registers *registers)
 {
   int pos;
   
-  for(pos = 0; lines[pos].getAddress() != registers->get(eip); pos++);
+  for(pos = 0; lines[pos].getAddress() != registers->get(Registers::eip);
+			pos++);
   
   instruction->setInfo(lines[pos].getInfo());
-  registers->set(eip, registers->get(eip) + 4);
+  registers->set(Registers::eip, registers->get(Registers::eip) + 4);
 } // fetch()
 
 fstream &operator>>(fstream& inf, Reader& reader)
