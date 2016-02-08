@@ -29,7 +29,8 @@ fstream& operator>>(fstream& inf, Labels& labels)
 		
 		// if the current thing is acutally a label, set the address to address and
 		// do stuff.
-			labels.instruction[instructionCount++] = line;
+			labels.instruction[instructionCount].setAddress(address);
+			labels.instruction[instructionCount++].setInfo(line);
 		
 	}  // while more in file
 	inf.clear();
