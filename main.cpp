@@ -14,7 +14,8 @@ int main(int argc, char* argv[])
   Instruction instruction;
 	Labels labels;
   int memory [1001];
-  registers.initialize(memory);
+	memory[1000] = 0;
+  //registers.initialize(memory);
 	fstream inf(argv[1]);
 	inf >> reader;
 	inf >> labels;

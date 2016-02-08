@@ -6,11 +6,11 @@ typedef enum {eax, ebp, esp, eip, edx, flags} RegName;
  
 class Registers 
 {
-  int regs[5];
+  int regs[6];
 public:
+	Registers();
   int* address(char *ptr, int memory[]);
   int get(RegName regName) const;
-  void initialize(int memory[1001]);
   void print(const char *instruction) const;
   void set(RegName regName, int value);
 }; // class Registers

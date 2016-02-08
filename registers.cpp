@@ -7,6 +7,18 @@
 using namespace std;
 
 
+Registers::Registers()
+{
+	regs[esp] = 1000;
+	regs[ebp] = 996;
+	regs[eip] = 100;
+	regs[eax] = 0;
+	regs[edx] = 0;
+	regs[flags] = 0xC0;
+}  // initialize()
+
+
+
 int* Registers::address(char *operand, int memory[])
 {
   static int value;
@@ -48,14 +60,6 @@ int Registers::get(RegName regName) const
   return regs[regName];
 }  // get()
 
-void Registers::initialize(int memory[1001])
-{
-  regs[esp] = 1000;
-  regs[ebp] = 996;
-  regs[eip] = 100;
-  regs[eax] = 0;
-  memory[1000] = 0;
-}  // initialize()
 
 
 void Registers::print(const char *instruction) const
