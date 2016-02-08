@@ -1,5 +1,5 @@
-CPU.out : decoder.o main.o  reader.o registers.o instruction.o
-	g++ -Wall -ansi -g -o CPU.out decoder.o  main.o reader.o registers.o instruction.o 
+CPU.out : decoder.o main.o  reader.o registers.o instruction.o labels.o
+	g++ -Wall -ansi -g -o CPU.out decoder.o  main.o reader.o registers.o instruction.o labels.o
 
 decoder.o: decoder.cpp decoder.h registers.h reader.h instruction.h  
 	g++ -Wall -ansi -g -c decoder.cpp
@@ -15,6 +15,9 @@ registers.o: registers.cpp registers.h
 
 instruction.o: instruction.cpp instruction.h
 	g++ -Wall -ansi -g -c instruction.cpp
+
+labels.o: labels.cpp labels.h instruction.h
+	g++ -Wall -ansi -g -c labels.o
 
 
 clean:
