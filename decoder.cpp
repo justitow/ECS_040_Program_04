@@ -32,7 +32,7 @@ void Decoder::execute(Registers *registers, int memory[1001])
   int opcodeNum;
   
   for(opcodeNum = ADDL; 
-    strcmp(opcode, opcodes[opcodeNum]) != 0 || opcodeNum > SUBL;
+    strcmp(opcode, opcodes[opcodeNum]) != 0 || opcodeNum > LEAL;
     ++opcodeNum);
   
   switch (opcodeNum)
@@ -49,7 +49,7 @@ void Decoder::execute(Registers *registers, int memory[1001])
 		case JG: jg(registers); break;
 		case JLE: jle(registers); break;
 		case JMP: jmp(registers); break;
-		//case LEAL: leal(); break;
+		case LEAL: leal(); break;
     default: cout << "Invalid opcode!\n";
   } // switch on oncodeNum
  
@@ -80,6 +80,11 @@ void Decoder::jle(Registers *registers)
 void Decoder::jmp(Registers *registers) const
 {
 	registers->set(Registers::eip, *operand1);
+}
+
+void Decoder::leal()
+{
+	
 }
 
 void Decoder::leave(Registers *registers, int memory[1001]) const

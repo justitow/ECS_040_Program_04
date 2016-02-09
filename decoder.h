@@ -18,6 +18,7 @@ class Decoder
 	void jg(Registers *registers);
 	void jle(Registers *registers);
 	void jmp(Registers *registers) const;
+	void leal();
   void leave(Registers *registers, int memory[1001]) const;
   void movl();
   void pushl(Registers *registers, int memory[1001]) const;

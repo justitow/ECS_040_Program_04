@@ -22,7 +22,7 @@ Registers::Registers()
 int* Registers::address(char *operand, const Labels *labels, int memory[])
 {
   static int value;
-  char regNames[4][7] = {"eax", "ebp", "esp", "eip"};
+  char regNames[5][7] = {"eax", "ebp", "esp", "eip", "edx"};
   char *ptr;
   int regNum, index;
 
@@ -42,7 +42,7 @@ int* Registers::address(char *operand, const Labels *labels, int memory[])
 		return &value;
 	}
 
-  for(regNum = eax; regNum <= eip; regNum++)
+  for(regNum = eax; regNum <= edx; regNum++)
     if(strstr(operand, regNames[regNum]))
       break;
 
@@ -61,7 +61,7 @@ int* Registers::address(char *operand, const Labels *labels, int memory[])
 
 int Registers::get(Registers::RegName regName) const
 {
-  if(regName < eax || regName > eip)
+  if(regName < eax || regName > flags)
     return 0;
   
   return regs[regName];
@@ -70,7 +70,7 @@ int Registers::get(Registers::RegName regName) const
 
 void Registers::set(Registers::RegName regName, int value)
 {
-  if(regName >= eax && regName <= eip)
+  if(regName >= eax && regName <= flags)
     regs[regName] = value;
 } // set()
 
@@ -86,6 +86,11 @@ const void Registers::setFlags(const int i)
 	{
 		regs[Registers::flags] = 0x40;
 	} // not negative
+	
+	if (i > 0)
+	{
+		regs[Registers::flags] = 0x00;
+	}
 	
 } // Registers::setFlags()
 
