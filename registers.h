@@ -17,10 +17,10 @@ public:
   int* address(char *ptr, int memory[]);
   int get(RegName regName) const;
   void set(RegName regName, int value);
-	int& operator+=(int& i);
+	
+	const int& operator+=(const int& i);
 	friend ostream& operator<<(ostream& cout, Registers& registers);
 }; // class Registers
-
 
 
 
