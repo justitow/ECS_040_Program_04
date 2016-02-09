@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
   while(registers.get(Registers::eip) != 0)
   {
     reader.fetch(&instruction, &registers);
-    decoder.parse(&instruction, &registers, memory);
+    decoder.parse(&instruction, &registers, &labels, memory);
     decoder.execute(&registers, memory);
 		cout << left << setw(20) << instruction.getInfo() << registers;
 		

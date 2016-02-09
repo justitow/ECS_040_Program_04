@@ -2,6 +2,8 @@
 #define	REGISTERS_H
 // Author: Sean Davis
 
+#include "labels.h"
+
 #include <iostream>
 
 using namespace std;
@@ -14,7 +16,7 @@ public:
 	typedef enum {eax, ebp, esp, eip, edx, flags} RegName;
 	
 	Registers();
-  int* address(char *ptr, int memory[]);
+  int* address(char *ptr, const Labels *labels, int memory[]);
   int get(RegName regName) const;
   void set(RegName regName, int value);
 	const void setFlags(const int i);

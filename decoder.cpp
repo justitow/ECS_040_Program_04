@@ -96,8 +96,8 @@ void Decoder::movl()
 }  // movl()
 
 
-void Decoder::parse(Instruction *instruction, Registers *registers, 
-                    int memory[1001])
+void Decoder::parse(Instruction *instruction, Registers *registers,
+										Labels *labels, int memory[1001])
 {
   char *ptr, info[1000];
   
@@ -107,11 +107,11 @@ void Decoder::parse(Instruction *instruction, Registers *registers,
   
   if(ptr)
   {
-    operand1 = registers->address(ptr, memory);
+    operand1 = registers->address(ptr, labels, memory);
     ptr = strtok(NULL, " ");
     
     if(ptr)
-      operand2 = registers->address(ptr, memory);
+      operand2 = registers->address(ptr, labels, memory);
   } // if there is at least one operand
 }  // parse()
 

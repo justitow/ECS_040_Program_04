@@ -19,7 +19,7 @@ Registers::Registers()
 
 
 
-int* Registers::address(char *operand, int memory[])
+int* Registers::address(char *operand, const Labels *labels, int memory[])
 {
   static int value;
   char regNames[4][7] = {"eax", "ebp", "esp", "eip"};
@@ -34,6 +34,13 @@ int* Registers::address(char *operand, int memory[])
     value = atoi(&operand[1]);
     return &value;
   } // if immediate mode
+
+	
+	if(operand[0] == '.' || operand[0] == '_')
+	{
+		value = labels->find(operand);
+		return &value;
+	}
 
   for(regNum = eax; regNum <= eip; regNum++)
     if(strstr(operand, regNames[regNum]))

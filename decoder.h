@@ -4,6 +4,7 @@
 
 #include "instruction.h"
 #include "registers.h"
+#include "labels.h"
 
 class Decoder
 {
@@ -24,7 +25,8 @@ class Decoder
   void subl(Registers *registers);
 public:
   void execute(Registers *registers, int memory[1001]);
-  void parse(Instruction *instruction, Registers *registers, int memory[1001]);
+  void parse(Instruction *instruction, Registers *registers, Labels *labels,
+						 int memory[1001]);
 }; // class Decoder;
 
 
