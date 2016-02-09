@@ -17,7 +17,6 @@ int main(int argc, char* argv[])
 	Labels labels;
   int memory [1001];
 	memory[1000] = 0;
-  //registers.initialize(memory);
 	fstream inf(argv[1]);
 	inf >> reader;
 	inf >> labels;
@@ -27,7 +26,6 @@ int main(int argc, char* argv[])
     reader.fetch(&instruction, &registers);
     decoder.parse(&instruction, &registers, memory);
     decoder.execute(&registers, memory);
-    //registers.print(instruction.getInfo());
 		cout << left << setw(20) << instruction.getInfo() << registers;
 		
   } // while eip not zero

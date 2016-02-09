@@ -118,7 +118,7 @@ ostream& operator<<(ostream& cout, Registers& registers)
 
 const int& Registers::operator+=(const int &i)
 {
-	regs[Registers::esp] = regs[Registers::esp] + 4;
+	regs[Registers::esp] = regs[Registers::esp] + i;
 	return regs[Registers::esp];
 } //operator +=
 
