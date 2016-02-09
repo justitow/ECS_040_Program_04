@@ -29,8 +29,9 @@ int main(int argc, char* argv[])
     decoder.execute(&registers, memory);
     //registers.print(instruction.getInfo());
 		cout << left << setw(20) << instruction.getInfo() << registers;
+		
   } // while eip not zero
-	
+		
   return 0;
 }  // main()
 

@@ -6,15 +6,16 @@
 #include "registers.h"
 using namespace std;
 
-void Decoder::addl()
+void Decoder::addl(Registers* registers)
 {
   *operand2 = *operand1 + *operand2;
-	
+	registers->setFlags(*operand2);
 }  // addl()
 
-void Decoder::andl()
+void Decoder::andl(Registers* registers)
 {
   *operand2 = *operand1 & *operand2;
+	registers->setFlags(*operand2);
 }  // andl()
 
 void Decoder::execute(Registers *registers, int memory[1001])
@@ -30,13 +31,13 @@ void Decoder::execute(Registers *registers, int memory[1001])
   
   switch (opcodeNum)
   {
-    case ADDL: addl(); break;
-    case ANDL: andl(); break;
+    case ADDL: addl(registers); break;
+    case ANDL: andl(registers); break;
     case LEAVE: leave(registers, memory); break;
     case MOVL: movl(); break;
     case PUSHL: pushl(registers, memory); break;
     case RET: ret(registers, memory); break;
-    case SUBL: subl(); break;
+    case SUBL: subl(registers); break;
     default: cout << "Invalid opcode!\n";
   } // switch on oncodeNum
  
@@ -94,7 +95,8 @@ void Decoder::ret(Registers *registers, int memory[1001]) const
 }  // ret()
 
 
-void Decoder::subl()
+void Decoder::subl(Registers* registers)
 {
   *operand2 = *operand2 - *operand1;
+	registers->setFlags(*operand2);
 }  // subl()

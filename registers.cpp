@@ -68,6 +68,21 @@ void Registers::set(Registers::RegName regName, int value)
 } // set()
 
 
+const void Registers::setFlags(const int i)
+{
+	if (i == 0)
+	{
+		regs[Registers::flags] = 0x80;
+	} // not 0
+
+	if (i < 0)
+	{
+		regs[Registers::flags] = 0x40;
+	} // not negative
+	
+} // Registers::setFlags()
+
+
 ostream& operator<<(ostream& cout, Registers& registers)
 {
 	cout << left << " eip: " << right << setw(3)
