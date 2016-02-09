@@ -18,11 +18,17 @@ void Decoder::andl(Registers* registers)
 	registers->setFlags(*operand2);
 }  // andl()
 
+void Decoder::cmpl(Registers* registers) const
+{
+	registers->setFlags(*operand2 - *operand1);
+}
+
 void Decoder::execute(Registers *registers, int memory[1001])
 {
   const char *opcodes[] = { "addl", "andl", "leave", "movl", "pushl", "ret",
-    "subl"};
-  enum OpcodeNum {ADDL, ANDL, LEAVE, MOVL, PUSHL, RET, SUBL};
+    "subl", "cmpl", "incl", "jg", "jle", "jmp", "leal"};
+  enum OpcodeNum {ADDL, ANDL, LEAVE, MOVL, PUSHL, RET, SUBL, CMPL, INCL, JG,
+	JLE, JMP, LEAL};
   int opcodeNum;
   
   for(opcodeNum = ADDL; 
@@ -38,10 +44,43 @@ void Decoder::execute(Registers *registers, int memory[1001])
     case PUSHL: pushl(registers, memory); break;
     case RET: ret(registers, memory); break;
     case SUBL: subl(registers); break;
+		case CMPL: cmpl(registers); break;
+		case INCL: incl(registers); break;
+		case JG: jg(registers); break;
+		case JLE: jle(registers); break;
+		case JMP: jmp(registers); break;
+		//case LEAL: leal(); break;
     default: cout << "Invalid opcode!\n";
   } // switch on oncodeNum
  
 }  // execute()
+
+void Decoder::incl(Registers *registers)
+{
+	*operand1 += 1;
+	registers->setFlags(*operand1);
+}
+
+void Decoder::jg(Registers *registers)
+{
+	if (!registers->SF() && !registers->ZF())
+	{
+		registers->set(Registers::eip, *operand1);
+	}
+}
+
+void Decoder::jle(Registers *registers)
+{
+	if (registers->SF() || registers->ZF())
+	{
+		registers->set(Registers::eip, *operand1);
+	}
+}
+
+void Decoder::jmp(Registers *registers) const
+{
+	registers->set(Registers::eip, *operand1);
+}
 
 void Decoder::leave(Registers *registers, int memory[1001]) const
 {

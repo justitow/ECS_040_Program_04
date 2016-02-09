@@ -82,6 +82,27 @@ const void Registers::setFlags(const int i)
 	
 } // Registers::setFlags()
 
+const bool Registers::SF()
+{
+
+	if (regs[Registers::flags] == 0x40)
+	{
+		return true;
+	}
+	
+	return false;
+}
+
+const bool Registers::ZF()
+{
+	
+	if (regs[Registers::flags] == 0x80)
+	{
+		return true;
+	}
+	
+	return false;
+}
 
 ostream& operator<<(ostream& cout, Registers& registers)
 {

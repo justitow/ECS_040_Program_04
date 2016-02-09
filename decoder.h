@@ -12,6 +12,11 @@ class Decoder
   int *operand2;
   void addl(Registers *registers);
   void andl(Registers *registers);
+	void cmpl(Registers *registers) const;
+	void incl(Registers *registers);
+	void jg(Registers *registers);
+	void jle(Registers *registers);
+	void jmp(Registers *registers) const;
   void leave(Registers *registers, int memory[1001]) const;
   void movl();
   void pushl(Registers *registers, int memory[1001]) const;
