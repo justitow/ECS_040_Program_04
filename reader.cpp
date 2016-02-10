@@ -22,7 +22,7 @@ fstream &operator>>(fstream& inf, Reader& reader)
 {
   char line[256], *ptr;
   int address = 100, instructionCount = 0;
-  
+  cout << "Got here";
   while(inf.getline(line, 256))
   {
     for(ptr = strchr(line, '\t'); ptr; ptr = strchr(line, '\t'))
@@ -34,7 +34,8 @@ fstream &operator>>(fstream& inf, Reader& reader)
     {
       reader.lines[instructionCount].setAddress(address);
       address += 4;
-      reader.lines[instructionCount++].setInfo(ptr);
+      reader.lines[instructionCount].setInfo(ptr);
+			instructionCount++;
     } // if not directive, nor main:
   }  // while more in file
 	inf.clear();

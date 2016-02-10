@@ -7,6 +7,10 @@
 #include "labels.h"
 
 #include <iomanip>
+#include <iostream>
+#include <fstream>
+
+using namespace std;
 
 int main(int argc, char* argv[])
 {
@@ -18,8 +22,9 @@ int main(int argc, char* argv[])
   int memory [1001];
 	memory[1000] = 0;
 	fstream inf(argv[1]);
-	inf >> reader;
 	cout << "done with reader";
+
+	inf >> reader;
 	inf >> labels;
 
   while(registers.get(Registers::eip) != 0)
