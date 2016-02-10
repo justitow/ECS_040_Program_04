@@ -25,6 +25,6 @@ public:
 	int find(const char* line) const;
 	friend ifstream& operator>>(ifstream& inf, Labels& labels);
 	
-};
+}; //Class labels
 
 #endif

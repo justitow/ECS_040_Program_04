@@ -43,7 +43,7 @@ ifstream& operator>>(ifstream& inf, Labels& labels)
 	inf.clear();
 	inf.seekg(0, inf.beg);
 	return inf;
-}
+} // operator>>()
 
 int Labels::find(const char* line) const
 {
@@ -54,4 +54,4 @@ int Labels::find(const char* line) const
 	
 	return instruction[index].getAddress();
 	
-}
+} // find()

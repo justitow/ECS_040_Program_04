@@ -21,7 +21,7 @@ void Decoder::andl(Registers* registers)
 void Decoder::cmpl(Registers* registers) const
 {
 	registers->setFlags(*operand2 - *operand1);
-}
+} //cmpl
 
 void Decoder::execute(Registers *registers, int memory[1001])
 {
@@ -67,14 +67,14 @@ void Decoder::jg(Registers *registers)
 	{
 		registers->set(Registers::eip, *operand1);
 	}
-}
+} //jg()
 
 void Decoder::jle(Registers *registers)
 {
 	if (registers->SF() || registers->ZF())
 	{
 		registers->set(Registers::eip, *operand1);
-	}
+	}// if not sf flag or zf flag
 }
 
 void Decoder::jmp(Registers *registers) const

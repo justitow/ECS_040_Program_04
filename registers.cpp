@@ -35,12 +35,12 @@ int* Registers::address(char *operand, const Labels *labels, int memory[])
     return &value;
   } // if immediate mode
 
-	
+
 	if(operand[0] == '.' || operand[0] == '_')
 	{
 		value = labels->find(operand);
 		return &value;
-	}
+	} //otherwise no .
 
 	if (strchr(operand, ','))
 	{
@@ -95,17 +95,17 @@ const void Registers::setFlags(const int i)
 	if (i > 0)
 	{
 		regs[Registers::flags] = 0x00;
-	}
+	} // not a number
 	
 } // Registers::setFlags()
 
 const bool Registers::SF()
 {
 
-	if (regs[Registers::flags] == 0x40)
+	if (regs[Registers::flags] == 0x20)
 	{
 		return true;
-	}
+	} // if not zero
 	
 	return false;
 }
@@ -113,10 +113,10 @@ const bool Registers::SF()
 const bool Registers::ZF()
 {
 	
-	if (regs[Registers::flags] == 0x80)
+	if (regs[Registers::flags] == 0x40)
 	{
 		return true;
-	}
+	} // if not negative
 	
 	return false;
 }
