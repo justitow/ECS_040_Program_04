@@ -3,7 +3,6 @@
 #include <fstream>
 #include <cstring>
 #include "reader.h"
-#include "registers.h"
 using namespace std;
 
 
