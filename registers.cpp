@@ -23,8 +23,8 @@ int* Registers::address(char *operand, const Labels *labels, int memory[])
 {
   static int value;
   char regNames[5][7] = {"eax", "ebp", "esp", "eip", "edx"};
-  char *ptr;
-  int regNum, index;
+  char *ptr, *first, *last, *firstE, *secondE, *lastParenth;
+  int regNum, index, firstReg, secondReg, otherIndex;
 
   if(operand == NULL)
     return NULL;
@@ -40,12 +40,7 @@ int* Registers::address(char *operand, const Labels *labels, int memory[])
   {
     value = labels->find(operand);
     return &value;
-  } //otherwise no .
-
-  if (strchr(operand, ','))
-  {
-    
-  } // if
+  } //otherwise no
 
   for(regNum = eax; regNum <= edx; regNum++)
     if(strstr(operand, regNames[regNum]))
@@ -55,10 +50,41 @@ int* Registers::address(char *operand, const Labels *labels, int memory[])
 
   if(ptr) // some form of indirect addressing
   {
+    first = strchr(operand, ',');
+    last = strrchr(operand, ',');
+    lastParenth = strchr(operand, ')');
+
+    if ((first != last) && first != NULL)
+    {
+      firstE = strchr(operand, 'e');
+      secondE = strrchr(operand, 'e');
+      *first = '\0';
+
+      for(firstReg = eax; firstReg <= edx; firstReg++)
+        if(strstr(firstE, regNames[firstReg]))
+          break;
+
+      for( secondReg= eax; secondReg <= edx; secondReg++)
+        if(strstr(secondE, regNames[secondReg]))
+          break;
+
+      secondE++;
+      *lastParenth = '\0';
+      
+      otherIndex = atoi(secondE);
+      *ptr = '\0';
+      
+      index = atoi(operand);
+      
+      return &memory[regs[firstReg] + regs[secondReg] * otherIndex + index];
+    }
+
     *ptr = '\0';  // terminate operand string at first '('
     index = atoi(operand);  // will return 0 if no number there!
+        
     return  &memory[regs[regNum] + index];
   } // if ptr
+
   else  // direct addressing
     return &(regs[regNum]);
 } // address ()
