@@ -21,7 +21,11 @@ int main(int argc, char* argv[])
   Instruction instruction;
 	Labels labels;
 	int memory [1001];
-	memory[1000] = 0;
+
+	for (int i = 0; i < 1001; i++)
+	{
+		memory[i] = 0;
+	} // for memory
 	ifstream inf;
 	inf.open(argv[1]);
 	

@@ -84,12 +84,12 @@ const void Registers::setFlags(const int i)
 {
 	if (i == 0)
 	{
-		regs[Registers::flags] = 0x80;
+		regs[Registers::flags] = 0x40;
 	} // not 0
 
 	if (i < 0)
 	{
-		regs[Registers::flags] = 0x40;
+		regs[Registers::flags] = 0x20;
 	} // not negative
 	
 	if (i > 0)
