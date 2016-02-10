@@ -11,7 +11,7 @@ void Reader::fetch(Instruction *instruction, Registers *registers)
   int pos;
   
   for(pos = 0; lines[pos].getAddress() != registers->get(Registers::eip);
-			pos++);
+      pos++);
   
   instruction->setInfo(lines[pos].getInfo());
   registers->set(Registers::eip, registers->get(Registers::eip) + 4);
@@ -33,11 +33,11 @@ ifstream &operator>>(ifstream& inf, Reader& reader)
       reader.lines[instructionCount].setAddress(address);
       address += 4;
       reader.lines[instructionCount].setInfo(ptr);
-			instructionCount++;
+      instructionCount++;
     } // if not directive, nor main:
   }  // while more in file
-	inf.clear();
-	inf.seekg(0, inf.beg);
-	return inf;
+  inf.clear();
+  inf.seekg(0, inf.beg);
+  return inf;
 }  // read()
 

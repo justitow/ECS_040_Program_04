@@ -1,5 +1,5 @@
 #ifndef INSTRUCTION_H
-#define	INSTRUCTION_H
+#define  INSTRUCTION_H
 // Author: Sean Davis
 
 class Instruction
@@ -16,5 +16,5 @@ public:
   
 }; //class Instruction
 
-#endif	// INSTRUCTION_H 
+#endif  // INSTRUCTION_H 
 

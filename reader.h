@@ -1,5 +1,5 @@
 #ifndef READER_H
-#define	READER_H
+#define  READER_H
 // Author: Sean Davis
 
 #include "instruction.h"
@@ -16,9 +16,9 @@ private:
 public:
   void fetch(Instruction *instruction, Registers *registers);
   void read(Registers *registers, const char *filename);
-	friend ifstream& operator>>(ifstream& inf,  Reader &reader);
+  friend ifstream& operator>>(ifstream& inf,  Reader &reader);
 }; // Reader;
 
 
-#endif	// READER_H 
+#endif  // READER_H 
 

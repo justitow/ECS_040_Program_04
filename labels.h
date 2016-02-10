@@ -19,12 +19,12 @@ using namespace std;
 class Labels
 {
 private:
-	int count;
-	Instruction instruction[100];
+  int count;
+  Instruction instruction[100];
 public:
-	int find(const char* line) const;
-	friend ifstream& operator>>(ifstream& inf, Labels& labels);
-	
+  int find(const char* line) const;
+  friend ifstream& operator>>(ifstream& inf, Labels& labels);
+  
 }; //Class labels
 
 #endif
