@@ -99,7 +99,7 @@ const void Registers::setFlags(const int i)
   
 } // Registers::setFlags()
 
-const bool Registers::SF()
+const bool Registers::sf()
 {
 
   if (regs[Registers::flags] == 0x20)
@@ -108,9 +108,9 @@ const bool Registers::SF()
   } // if not zero
   
   return false;
-}
+} //sf()
 
-const bool Registers::ZF()
+const bool Registers::zf()
 {
   
   if (regs[Registers::flags] == 0x40)
@@ -119,7 +119,7 @@ const bool Registers::ZF()
   } // if not negative
   
   return false;
-}
+} //zf()
 
 ostream& operator<<(ostream& cout, Registers& registers)
 {

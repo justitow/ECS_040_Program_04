@@ -63,7 +63,7 @@ void Decoder::incl(Registers *registers)
 
 void Decoder::jg(Registers *registers)
 {
-  if (!registers->SF() && !registers->ZF())
+  if (!registers->sf() && !registers->zf())
   {
     registers->set(Registers::eip, *operand1);
   } // if()
@@ -71,7 +71,7 @@ void Decoder::jg(Registers *registers)
 
 void Decoder::jle(Registers *registers)
 {
-  if (registers->SF() || registers->ZF())
+  if (registers->sf() || registers->zf())
   {
     registers->set(Registers::eip, *operand1);
   }// if not sf flag or zf flag

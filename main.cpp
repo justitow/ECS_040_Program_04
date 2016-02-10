@@ -26,6 +26,7 @@ int main(int argc, char* argv[])
   {
     memory[i] = 0;
   } // for memory
+
   ifstream inf;
   inf.open(argv[1]);
   

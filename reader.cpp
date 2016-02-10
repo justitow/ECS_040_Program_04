@@ -21,6 +21,7 @@ ifstream &operator>>(ifstream& inf, Reader& reader)
 {
   char line[256], *ptr;
   int address = 100, instructionCount = 0;
+
   while(inf.getline(line, 256))
   {
     for(ptr = strchr(line, '\t'); ptr; ptr = strchr(line, '\t'))
@@ -35,7 +36,9 @@ ifstream &operator>>(ifstream& inf, Reader& reader)
       reader.lines[instructionCount].setInfo(ptr);
       instructionCount++;
     } // if not directive, nor main:
+
   }  // while more in file
+
   inf.clear();
   inf.seekg(0, inf.beg);
   return inf;

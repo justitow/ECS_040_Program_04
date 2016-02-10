@@ -37,11 +37,13 @@ ifstream& operator>>(ifstream& inf, Labels& labels)
       {
         *ptr = '\0';
       } // if there wasn't a colon
+
       labels.instruction[labels.count].setInfo(line);
       labels.count++;
     } //if there wasn't a label
 
   }  // while more in file
+
   inf.clear();
   inf.seekg(0, inf.beg);
   return inf;
