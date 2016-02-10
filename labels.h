@@ -23,7 +23,7 @@ private:
 	Instruction instruction[100];
 public:
 	int find(const char* line) const;
-	friend fstream& operator>>(fstream& inf, Labels& labels);
+	friend ifstream& operator>>(ifstream& inf, Labels& labels);
 	
 };
 

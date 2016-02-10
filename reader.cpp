@@ -17,7 +17,7 @@ void Reader::fetch(Instruction *instruction, Registers *registers)
   registers->set(Registers::eip, registers->get(Registers::eip) + 4);
 } // fetch()
 
-fstream &operator>>(fstream& inf, Reader& reader)
+ifstream &operator>>(ifstream& inf, Reader& reader)
 {
   char line[256], *ptr;
   int address = 100, instructionCount = 0;

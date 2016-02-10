@@ -10,7 +10,7 @@
 #include <cstring>
 #include "labels.h"
 
-fstream& operator>>(fstream& inf, Labels& labels)
+ifstream& operator>>(ifstream& inf, Labels& labels)
 {
 	
 	char line[256], *ptr;

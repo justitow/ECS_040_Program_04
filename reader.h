@@ -16,7 +16,7 @@ private:
 public:
   void fetch(Instruction *instruction, Registers *registers);
   void read(Registers *registers, const char *filename);
-	friend fstream& operator>>( fstream& inf,  Reader &reader);
+	friend ifstream& operator>>(ifstream& inf,  Reader &reader);
 }; // Reader;
 
 
