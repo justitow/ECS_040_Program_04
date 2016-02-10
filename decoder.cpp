@@ -28,7 +28,7 @@ void Decoder::execute(Registers *registers, int memory[1001])
   const char *opcodes[] = { "addl", "andl", "leave", "movl", "pushl", "ret",
     "subl", "cmpl", "incl", "jg", "jle", "jmp", "leal"};
   enum OpcodeNum {ADDL, ANDL, LEAVE, MOVL, PUSHL, RET, SUBL, CMPL, INCL, JG,
-  JLE, JMP, LEAL};
+    JLE, JMP, LEAL};
   int opcodeNum;
 
   for(opcodeNum = ADDL;
@@ -59,14 +59,14 @@ void Decoder::incl(Registers *registers)
 {
   *operand1 += 1;
   registers->setFlags(*operand1);
-}
+} // incl()
 
 void Decoder::jg(Registers *registers)
 {
   if (!registers->SF() && !registers->ZF())
   {
     registers->set(Registers::eip, *operand1);
-  }
+  } // if()
 } //jg()
 
 void Decoder::jle(Registers *registers)
@@ -75,17 +75,17 @@ void Decoder::jle(Registers *registers)
   {
     registers->set(Registers::eip, *operand1);
   }// if not sf flag or zf flag
-}
+} // jle()
 
 void Decoder::jmp(Registers *registers) const
 {
   registers->set(Registers::eip, *operand1);
-}
+} //jmp()
 
 void Decoder::leal()
 {
 
-}
+} // leal
 
 void Decoder::leave(Registers *registers, int memory[1001]) const
 {

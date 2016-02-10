@@ -126,7 +126,7 @@ ostream& operator<<(ostream& cout, Registers& registers)
   cout << left << " eip: " << right << setw(3)
   << registers.regs[Registers::eip] << " eax: " << setw(3)
   << registers.regs[Registers::eax] << " ebp: " << setw(3)
-  << registers.regs[Registers::ebp] << " esp: "<< setw(3)
+  << registers.regs[Registers::ebp] << " esp: " << setw(3)
   << registers.regs[Registers::esp] << " edx: " << setw(3)
   << registers.regs[Registers::edx] << " flags: " << setw(3)
   << registers.regs[Registers::flags] << endl;

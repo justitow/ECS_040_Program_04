@@ -16,6 +16,7 @@ ifstream& operator>>(ifstream& inf, Labels& labels)
   char line[256], *ptr;
   int address = 100;
   labels.count = 0;
+
   while(inf.getline(line, 256))
   {
     for(ptr = strchr(line, '\t'); ptr; ptr = strchr(line, '\t'))
@@ -39,6 +40,7 @@ ifstream& operator>>(ifstream& inf, Labels& labels)
       labels.instruction[labels.count].setInfo(line);
       labels.count++;
     } //if there wasn't a label
+
   }  // while more in file
   inf.clear();
   inf.seekg(0, inf.beg);
