@@ -1,49 +1,46 @@
-  .file  "test4.c"
-  .text
-  .align 2
-.globl main
-  .type  main,@function
+	.file	"test4.c"
+	.text
+	.globl	main
+	.type	main, @function
 main:
-.LFB2:
-  pushl  %ebp
-.LCFI0:
-  movl  %esp, %ebp
-.LCFI1:
-  subl  $88, %esp
-.LCFI2:
-  andl  $-16, %esp
-  movl  $0, %eax
-  subl  %eax, %esp
-  movl  $197, -12(%ebp)
-  cmpl  $99, -12(%ebp)
-  jg  .L2
-  movl  $134, -16(%ebp)
-  jmp  .L3
+.LFB0:
+	.cfi_startproc
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
+	subl	$64, %esp
+	movl	$197, -12(%ebp)
+	cmpl	$99, -12(%ebp)
+	jg	.L2
+	movl	$134, -4(%ebp)
+	jmp	.L3
 .L2:
-  movl  $26, -16(%ebp)
+	movl	$26, -4(%ebp)
 .L3:
-  movl  $0, -76(%ebp)
-.L4:
-  cmpl  $2, -76(%ebp)
-  jle  .L7
-  jmp  .L5
-.L7:
-  movl  -76(%ebp), %edx
-  movl  -16(%ebp), %eax
-  addl  -12(%ebp), %eax
-  movl  %eax, -72(%ebp,%edx,4)
-  leal  -76(%ebp), %eax
-  incl  (%eax)
-  jmp  .L4
+	movl	$0, -8(%ebp)
+	jmp	.L4
 .L5:
-  movl  -52(%ebp), %eax
-  addl  $18, %eax
-  movl  %eax, -12(%ebp)
-  movl  -16(%ebp), %eax
-  leave
-  ret
-.LFE2:
-.Lfe1:
-  .size  main,.Lfe1-main
-  .section  .note.GNU-stack,"",@progbits
-  .ident  "GCC: (GNU) 3.2.3 20030502 (Red Hat Linux 3.2.3-49)"
+	movl	-12(%ebp), %edx
+	movl	-4(%ebp), %eax
+	addl	%eax, %edx
+	movl	-8(%ebp), %eax
+	movl	%edx, -52(%ebp,%eax,4)
+	addl	$1, -8(%ebp)
+.L4:
+	cmpl	$2, -8(%ebp)
+	jle	.L5
+	movl	-44(%ebp), %eax
+	addl	$18, %eax
+	movl	%eax, -12(%ebp)
+	movl	-4(%ebp), %eax
+	leave
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	main, .-main
+	.ident	"GCC: (GNU) 5.3.1 20151207 (Red Hat 5.3.1-2)"
+	.section	.note.GNU-stack,"",@progbits
