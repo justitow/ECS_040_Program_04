@@ -11,6 +11,7 @@
 using namespace std;
 class Reader
 {
+private:
   Instruction lines[1000];
 public:
   void fetch(Instruction *instruction, Registers *registers);
