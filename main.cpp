@@ -19,6 +19,7 @@ int main(int argc, char* argv[])
 	memory[1000] = 0;
 	fstream inf(argv[1]);
 	inf >> reader;
+	cout << "done with reader";
 	inf >> labels;
 
   while(registers.get(Registers::eip) != 0)

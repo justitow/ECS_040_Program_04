@@ -42,10 +42,15 @@ int* Registers::address(char *operand, const Labels *labels, int memory[])
 		return &value;
 	}
 
+	if (strchr(operand, ','))
+	{
+		
+	} // if
+
   for(regNum = eax; regNum <= edx; regNum++)
     if(strstr(operand, regNames[regNum]))
       break;
-
+	
   ptr = strchr(operand, '(');
 
   if(ptr) // some form of indirect addressing
