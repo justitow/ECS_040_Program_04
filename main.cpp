@@ -19,10 +19,12 @@ int main(int argc, char* argv[])
   Registers registers;
   Instruction instruction;
 	Labels labels;
+	char* test = new char[256];
+	test = argv[1];
   int memory [1001];
 	memory[1000] = 0;
 	fstream inf;
-	inf.open(argv[1]);
+	inf.open(test);
 	
 	inf >> reader;
 	inf >> labels;
