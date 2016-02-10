@@ -27,8 +27,9 @@ void Decoder::execute(Registers *registers, int memory[1001])
 {
   const char *opcodes[] = { "addl", "andl", "leave", "movl", "pushl", "ret",
     "subl", "cmpl", "incl", "jg", "jle", "jmp", "leal"};
-  enum OpcodeNum {ADDL, ANDL, LEAVE, MOVL, PUSHL, RET, SUBL, CMPL, INCL, JG,
-    JLE, JMP, LEAL};
+  enum OpcodeNum
+  {ADDL, ANDL, LEAVE, MOVL, PUSHL, RET, SUBL, CMPL, INCL, JG, JLE, JMP, LEAL};
+  
   int opcodeNum;
 
   for(opcodeNum = ADDL;
