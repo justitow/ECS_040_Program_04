@@ -22,6 +22,7 @@ int main(int argc, char* argv[])
   int memory [1001];
 	memory[1000] = 0;
 	fstream inf;
+	cout << argv[1];
 	inf.open(argv[1]);
 	
 	inf >> reader;
