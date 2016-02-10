@@ -44,8 +44,6 @@ ifstream& operator>>(ifstream& inf, Labels& labels)
 
   }  // while more in file
 
-  inf.clear();
-  inf.seekg(0, inf.beg);
   return inf;
 } // operator>>()
 
