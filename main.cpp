@@ -20,7 +20,7 @@ int main(int argc, char* argv[])
   Instruction instruction;
 	Labels labels;
 	char* test = new char[256];
-	test = argv[1];
+	strcpy(test, argv[1]);
   int memory [1001];
 	memory[1000] = 0;
 	fstream inf;
