@@ -21,9 +21,9 @@ int main(int argc, char* argv[])
 	Labels labels;
   int memory [1001];
 	memory[1000] = 0;
-	fstream inf(argv[1]);
-	cout << "done with reader";
-
+	fstream inf;
+	inf.open(argv[1]);
+	
 	inf >> reader;
 	inf >> labels;
 

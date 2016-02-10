@@ -22,7 +22,6 @@ fstream &operator>>(fstream& inf, Reader& reader)
 {
   char line[256], *ptr;
   int address = 100, instructionCount = 0;
-  cout << "Got here";
   while(inf.getline(line, 256))
   {
     for(ptr = strchr(line, '\t'); ptr; ptr = strchr(line, '\t'))
