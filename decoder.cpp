@@ -20,9 +20,11 @@ void Decoder::andl(Registers* registers)
   registers->setFlags(*operand2);
 }  // andl()
 
-void Decoder::call(Registers* registers)
+void Decoder::call(Registers* registers, int memory[1001])
 {
-  
+  (*registers) += -4;
+  memory[registers->get(Registers::esp)] = registers->get(Registers::eip);
+  registers->set(Registers::eip, *operand1);
 }
 
 void Decoder::cmpl(Registers* registers) const
@@ -40,7 +42,7 @@ void Decoder::execute(Registers *registers, int memory[1001])
   int opcodeNum;
 
   for(opcodeNum = ADDL;
-    strcmp(opcode, opcodes[opcodeNum]) != 0 || opcodeNum > LEAL;
+    strcmp(opcode, opcodes[opcodeNum]) != 0 || opcodeNum > SALL;
     ++opcodeNum);
 
   switch (opcodeNum)
@@ -58,7 +60,7 @@ void Decoder::execute(Registers *registers, int memory[1001])
     case JLE: jle(registers); break;
     case JMP: jmp(registers); break;
     case LEAL: leal(registers); break;
-    case CALL: call(registers); break;
+    case CALL: call(registers, memory); break;
     case SALL: sall(registers); break;
     default: cout << "Invalid opcode!\n";
   } // switch on oncodeNum
@@ -168,7 +170,8 @@ void Decoder::ret(Registers *registers, int memory[1001]) const
 
 void Decoder::sall(Registers *registers)
 {
-  
+
+  *operand2 = *operand2 << *operand1;
 }
 
 void Decoder::subl(Registers* registers)

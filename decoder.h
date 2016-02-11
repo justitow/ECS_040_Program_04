@@ -13,7 +13,7 @@ class Decoder
   int *operand2;
   void addl(Registers *registers);
   void andl(Registers *registers);
-  void call(Registers *registers);
+  void call(Registers *registers, int memory[1001]);
   void cmpl(Registers *registers) const;
   void incl(Registers *registers);
   void jg(Registers *registers);

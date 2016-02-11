@@ -35,8 +35,6 @@ int main(int argc, char* argv[])
   
   registers.set(Registers::eip, labels.find("main"));
   
-  bool firsttime = true;
-
   while(registers.get(Registers::eip) != 0)
   {
     reader.fetch(&instruction, &registers);
