@@ -29,7 +29,8 @@ ifstream& operator>>(ifstream& inf, Labels& labels)
       address += 4;
     } // if not directive, nor main:
 
-    if ((*ptr == '.' && *(ptr + 1) == 'L') || *ptr == '_' || strstr(line, "main:"))
+    if ((*ptr == '.' && *(ptr + 1) == 'L') || *ptr == '_' ||
+        strstr(line, "main:"))
     {
       labels.instruction[labels.count].setAddress(address);
 

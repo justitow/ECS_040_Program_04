@@ -25,7 +25,7 @@ void Decoder::call(Registers* registers, int memory[1001])
   (*registers) += -4;
   memory[registers->get(Registers::esp)] = registers->get(Registers::eip);
   registers->set(Registers::eip, *operand1);
-}
+} //call ()
 
 void Decoder::cmpl(Registers* registers) const
 {
@@ -37,7 +37,8 @@ void Decoder::execute(Registers *registers, int memory[1001])
   const char *opcodes[] = { "addl", "andl", "leave", "movl", "pushl", "ret",
     "subl", "cmpl", "incl", "jg", "jle", "jmp", "leal", "call", "sall"};
   enum OpcodeNum
-  {ADDL, ANDL, LEAVE, MOVL, PUSHL, RET, SUBL, CMPL, INCL, JG, JLE, JMP, LEAL, CALL, SALL};
+  {ADDL, ANDL, LEAVE, MOVL, PUSHL, RET, SUBL, CMPL, INCL, JG, JLE, JMP, LEAL,
+    CALL, SALL};
   
   int opcodeNum;
 
@@ -122,6 +123,7 @@ void Decoder::parse(Instruction *instruction, Registers *registers,
   strcpy(info, instruction->getInfo());
   strcpy(opcode, strtok(info, " "));
   ptr = strtok(NULL, " ");
+
   if(ptr)
   {
 
@@ -136,14 +138,12 @@ void Decoder::parse(Instruction *instruction, Registers *registers,
 
       if(ptr)
         operand2 = registers->address(ptr, labels, memory);
-    }
+    } // otherwise
 
-    else
-    {
-    operand1 = registers->address(ptr, labels, memory);
-    }
+    else // this happens
+      operand1 = registers->address(ptr, labels, memory);
+
     ptr = strtok(NULL, " ");
-      
 
     if(ptr)
       operand2 = registers->address(ptr, labels, memory);
