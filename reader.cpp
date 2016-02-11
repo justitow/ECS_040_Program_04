@@ -29,7 +29,7 @@ ifstream &operator>>(ifstream& inf, Reader& reader)
     
     for(ptr = line; *ptr == ' '; ptr++);  // get past leading spaces
     
-    if(*ptr != '.' && !strstr(line, "main:"))
+    if((*ptr != '.' && !strstr(line, "main:")) && *ptr != '_')
     {
       reader.lines[instructionCount].setAddress(address);
       address += 4;

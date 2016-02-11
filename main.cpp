@@ -32,11 +32,17 @@ int main(int argc, char* argv[])
   
   inf >> reader;
   inf >> labels;
+  
+  registers.set(Registers::eip, labels.find("main"));
+  
+  bool firsttime = true;
 
   while(registers.get(Registers::eip) != 0)
   {
     reader.fetch(&instruction, &registers);
     decoder.parse(&instruction, &registers, &labels, memory);
+
+
     decoder.execute(&registers, memory);
     cout << left << setw(20) << instruction.getInfo() << registers;
     
