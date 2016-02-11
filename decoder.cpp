@@ -37,8 +37,10 @@ void Decoder::execute(Registers *registers, int memory[1001])
   const char *opcodes[] = { "addl", "andl", "leave", "movl", "pushl", "ret",
     "subl", "cmpl", "incl", "jg", "jle", "jmp", "leal", "call", "sall"};
   enum OpcodeNum
-  {ADDL, ANDL, LEAVE, MOVL, PUSHL, RET, SUBL, CMPL, INCL, JG, JLE, JMP, LEAL,
-    CALL, SALL};
+  {
+    ADDL, ANDL, LEAVE, MOVL, PUSHL, RET, SUBL, CMPL, INCL, JG, JLE, JMP, LEAL,
+    CALL, SALL
+  };
   
   int opcodeNum;
 
@@ -172,7 +174,7 @@ void Decoder::sall(Registers *registers)
 {
   *operand2 = *operand2 << *operand1;
   registers->setFlags(*operand2);
-}
+} // sall()
 
 void Decoder::subl(Registers* registers)
 {

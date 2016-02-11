@@ -64,7 +64,7 @@ int* Registers::address(char *operand, const Labels *labels, int memory[])
         if(strstr(firstE, regNames[firstReg]))
           break;
 
-      for( secondReg= eax; secondReg <= edx; secondReg++)
+      for(secondReg = eax; secondReg <= edx; secondReg++)
         if(strstr(secondE, regNames[secondReg]))
           break;
 
@@ -76,7 +76,7 @@ int* Registers::address(char *operand, const Labels *labels, int memory[])
       
       index = atoi(operand);
       return &memory[regs[firstReg] + regs[secondReg] * otherIndex + index];
-    }
+    } // if
 
     *ptr = '\0';  // terminate operand string at first '('
     index = atoi(operand);  // will return 0 if no number there!
