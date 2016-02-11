@@ -56,6 +56,7 @@ int* Registers::address(char *operand, const Labels *labels, int memory[])
 
     if ((first != last) && first != NULL)
     {
+      cout << "found a scaled index array\n";
       firstE = strchr(operand, 'e');
       secondE = strrchr(operand, 'e');
       *first = '\0';
@@ -68,14 +69,13 @@ int* Registers::address(char *operand, const Labels *labels, int memory[])
         if(strstr(secondE, regNames[secondReg]))
           break;
 
-      secondE++;
       *lastParenth = '\0';
+      last++;
       
-      otherIndex = atoi(secondE);
+      otherIndex = atoi(last);
       *ptr = '\0';
       
       index = atoi(operand);
-      
       return &memory[regs[firstReg] + regs[secondReg] * otherIndex + index];
     }
 
