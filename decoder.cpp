@@ -40,7 +40,7 @@ void Decoder::execute(Registers *registers, int memory[1001])
   {
     ADDL, ANDL, LEAVE, MOVL, PUSHL, RET, SUBL, CMPL, INCL, JG, JLE, JMP, LEAL,
     CALL, SALL
-  };
+  }; //enum
   
   int opcodeNum;
 
