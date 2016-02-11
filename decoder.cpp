@@ -170,8 +170,8 @@ void Decoder::ret(Registers *registers, int memory[1001]) const
 
 void Decoder::sall(Registers *registers)
 {
-
   *operand2 = *operand2 << *operand1;
+  registers->setFlags(*operand2);
 }
 
 void Decoder::subl(Registers* registers)

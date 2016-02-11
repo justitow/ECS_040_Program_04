@@ -42,5 +42,5 @@ ifstream &operator>>(ifstream& inf, Reader& reader)
   inf.clear();
   inf.seekg(0, inf.beg);
   return inf;
-}  // read()
+}  // >>()
 
