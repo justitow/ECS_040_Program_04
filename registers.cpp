@@ -110,12 +110,12 @@ const void Registers::setFlags(const int i)
 {
   if (i == 0)
   {
-    regs[Registers::flags] = 0x80;
+    regs[Registers::flags] = 0x40;
   } // not 0
 
   if (i < 0)
   {
-    regs[Registers::flags] = 0x40;
+    regs[Registers::flags] = 0x80;
   } // not negative
   
   if (i > 0)
@@ -128,7 +128,7 @@ const void Registers::setFlags(const int i)
 const bool Registers::sf()
 {
 
-  if (regs[Registers::flags] == 0x40)
+  if (regs[Registers::flags] == 0x80)
   {
     return true;
   } // if not zero
@@ -139,7 +139,7 @@ const bool Registers::sf()
 const bool Registers::zf()
 {
   
-  if (regs[Registers::flags] == 0x80)
+  if (regs[Registers::flags] == 0x40)
   {
     return true;
   } // if not negative
