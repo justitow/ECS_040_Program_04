@@ -1,6 +1,8 @@
 // Author: Sean Davis
 #include <cstring>
 #include <iostream>
+#include <cstdlib>
+
 #include "decoder.h"
 #include "instruction.h"
 #include "registers.h"
