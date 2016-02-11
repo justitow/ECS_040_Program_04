@@ -24,7 +24,7 @@ ifstream& operator>>(ifstream& inf, Labels& labels)
 
     for(ptr = line; *ptr == ' '; ptr++);  // get past leading spaces
     
-    if(*ptr != '.' && !strstr(line, "main:"))
+    if(*ptr != '.' && !strstr(line, "main:") && *ptr != '_')
     {
       address += 4;
     } // if not directive, nor main:
