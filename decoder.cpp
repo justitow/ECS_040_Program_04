@@ -50,7 +50,7 @@ void Decoder::execute(Registers *registers, int memory[1001])
     case JG: jg(registers); break;
     case JLE: jle(registers); break;
     case JMP: jmp(registers); break;
-    case LEAL: leal(); break;
+    case LEAL: leal(registers); break;
     default: cout << "Invalid opcode!\n";
   } // switch on oncodeNum
 
@@ -83,8 +83,9 @@ void Decoder::jmp(Registers *registers) const
   registers->set(Registers::eip, *operand1);
 } //jmp()
 
-void Decoder::leal()
+void Decoder::leal(Registers *registers) const
 {
+  *operand2 = (registers->get(Registers::ebp) + *operand1);
 
 } // leal
 
@@ -105,19 +106,37 @@ void Decoder::movl()
 void Decoder::parse(Instruction *instruction, Registers *registers,
                     Labels *labels, int memory[1001])
 {
-  char *ptr, info[1000];
-
+  char *ptr, *otherPtr, info[1000];
+  int index = 0;
   strcpy(info, instruction->getInfo());
   strcpy(opcode, strtok(info, " "));
   ptr = strtok(NULL, " ");
-
   if(ptr)
   {
+
+    if (strstr(opcode, "leal"))
+    {
+      otherPtr = strchr(ptr, '(');
+      *otherPtr = '\0';
+      index = atoi(ptr);
+      *operand1 = index;
+      otherPtr++;
+      ptr = strtok(NULL, " ");
+
+      if(ptr)
+        operand2 = registers->address(ptr, labels, memory);
+    }
+
+    else
+    {
     operand1 = registers->address(ptr, labels, memory);
+    }
     ptr = strtok(NULL, " ");
+      
 
     if(ptr)
       operand2 = registers->address(ptr, labels, memory);
+    
   } // if there is at least one operand
 }  // parse()
 
